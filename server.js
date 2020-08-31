@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const atlasConnect = require('./Atlas/atlasConnect');
+const atlasConnect = require('./Data/atlasConnect');
 
 const port = process.env.PORT || 3001;
 const app = express();

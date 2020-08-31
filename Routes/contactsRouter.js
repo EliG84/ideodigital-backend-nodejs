@@ -16,6 +16,18 @@ router.get('/all', async (req, res) => {
   }
 });
 
+router.get('/total', async (req, res) => {
+  try {
+    const total = await Contact.find().countDocuments();
+    res.status(200).json({ error: false, total });
+  } catch (error) {
+    console.log('From get All::::', error);
+    res
+      .status(400)
+      .json({ error: true, message: 'Server Issue, Try again later.' });
+  }
+});
+
 router.get('/single/:id', async (req, res) => {
   const { id } = req.params;
   try {

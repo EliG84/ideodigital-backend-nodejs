@@ -29,7 +29,11 @@ const ContactSchema = new Schema({
       'Please use a valid Email Address user@domainname.TLD',
     ],
   },
-  phone: { type: String, required: true },
+  phone: {
+    type: String,
+    minlength: [11, 'Invalid Phone Number'],
+    required: true,
+  },
 });
 
 const Contact = mongoose.model('contact', ContactSchema);
